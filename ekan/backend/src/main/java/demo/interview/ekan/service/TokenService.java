@@ -62,13 +62,13 @@ public class TokenService {
 	
 
 	public String getSubject(HttpServletRequest request) {
-		String tokenJWT = this.recuperarToken(request);
+		String tokenJWT = this.getOnlyToken(request);
 		if (tokenJWT != null) return this.getSubject(tokenJWT);
 		return null;
 	}
 	
 
-	public String recuperarToken(HttpServletRequest request) {
+	public String getOnlyToken(HttpServletRequest request) {
 		String authorizationHeader = request.getHeader("Authorization");
 		if (authorizationHeader != null) {
 			return authorizationHeader.replace("Bearer ", "");

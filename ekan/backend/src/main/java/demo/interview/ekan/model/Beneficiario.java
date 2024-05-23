@@ -31,26 +31,27 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Entity
-@Table(name ="beneficiario")
+@Table(name = "beneficiario")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Builder
 public class Beneficiario implements Serializable {
-    public Beneficiario(String name, String telefone,LocalDate dtaNascimento ) {
+    public Beneficiario(String name, String telefone, LocalDate dtaNascimento) {
         super();
         this.dataNascimento = dtaNascimento;
         this.nome = name;
         this.telefone = telefone;
     }
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private @Id long id;
 
     @NonNull
     @Column(nullable = false)
     private String nome;
-    
+
     @NonNull
     @Column(nullable = false)
     private String telefone;
@@ -67,6 +68,7 @@ public class Beneficiario implements Serializable {
     @LastModifiedDate
     private LocalDateTime dataAtualizacao;
 
+    // @JoinColumn(name = "id", referencedColumnName = "beneficiario_id")
     @OneToMany(mappedBy = "beneficiario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Documento> documentos = new ArrayList<>();
 
@@ -86,24 +88,24 @@ public class Beneficiario implements Serializable {
     protected void onCreate() {
 
         dataInclusao = LocalDateTime.now();
-        dataAtualizacao= LocalDateTime.now();
+        dataAtualizacao = LocalDateTime.now();
     }
 
     @PreUpdate
     protected void onUpdate() {
-       
+
         dataAtualizacao = LocalDateTime.now();
     }
 
-    public BeneficiarioDTO parseBeneficiarioDTO(){
+    public BeneficiarioDTO parseBeneficiarioDTO() {
         BeneficiarioDTO resp = new BeneficiarioDTO();
         resp.setDtaNascimento(this.dataNascimento);
         resp.setNome(this.nome);
         resp.setId(this.getId());
         resp.setTelefone(this.telefone);
         resp.setDocumentos(new ArrayList<DocumentoDTO>());
-        if(!this.getDocumentos().isEmpty()){
-            this.getDocumentos().forEach(f->{
+        if (!this.getDocumentos().isEmpty()) {
+            this.getDocumentos().forEach(f -> {
                 resp.getDocumentos().add(f.parDocumentoDTO());
             });
         }

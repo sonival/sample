@@ -38,7 +38,7 @@ public class BeneficiarioDTO {
         newBeneficiario.setNome(this.nome);
         newBeneficiario.setTelefone(this.telefone);
         List<Documento> docs =  new ArrayList<Documento>(); 
-        if(!this.documentos.isEmpty()){
+        if( this.documentos!=null &&  !this.documentos.isEmpty()){
             this.documentos.forEach(doc -> {
                 docs.add(doc.parseToDocumento());
             });

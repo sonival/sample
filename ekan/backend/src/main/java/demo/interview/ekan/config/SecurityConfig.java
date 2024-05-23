@@ -22,18 +22,23 @@ public class SecurityConfig {
 	@Autowired
 	private SecurityFilter securityFilter;
 
+	// @Autowired
+	// private UserDetailsService userDetailsService;
+
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
 		return http
 				.csrf(csrf -> csrf.disable())
-				.csrf(csrf -> csrf
-						.ignoringRequestMatchers("/token/**","/h2/**"))
-				.cors(cors -> cors.disable())
+				// .csrf(csrf -> csrf
+				// 		.ignoringRequestMatchers("/token/**", "/h2/**"))
+				// .cors(cors -> cors.disable())
 				.sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(auth -> auth
-						.requestMatchers("/token/**","/h2/**").permitAll())
-				.authorizeHttpRequests(auth -> auth.requestMatchers(	
+						.requestMatchers("/token/**", "/h2/**").permitAll())
+				.authorizeHttpRequests(auth -> auth.requestMatchers(
+						"/login",
+						"/api/v1/**",
 						"/swagger-ui.html",
 						"/swagger-ui/**",
 						"/v3/api-docs/**").permitAll()

@@ -10,6 +10,8 @@ public interface IBeneficiarioService {
     Beneficiario add(Beneficiario beneficiario);
     List<Beneficiario> getAll();
     void removeAll();
+    void removeById(long id) throws Exception ;
+    Beneficiario updatBeneficiario(Beneficiario beneficiario) throws Exception;
 
 
 

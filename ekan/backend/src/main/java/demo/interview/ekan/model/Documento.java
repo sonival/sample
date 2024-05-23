@@ -39,6 +39,7 @@ public class Documento {
     @JoinColumn(name = "beneficiario_id")
     private Beneficiario beneficiario;
 
+    
     @PrePersist
     protected void onCreate() {
 
