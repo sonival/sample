@@ -32,6 +32,11 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 # abrindo o openapi da aplicação no navegador (Chrome/FireFox)
 http://localhost:8080/swagger-ui/index.html
 
+
+# Acesso ao banco de dados H2
+hhttp://localhost:8080/h2
+
+
 # Curl para gerar TOKEN autorizacao:
 curl --location 'http://localhost:8080/token' \
 --header 'Authorization;' \
