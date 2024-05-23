@@ -16,7 +16,7 @@ Projeto Teste DESENVOLVEDOR JAVA.
 
 # Como executar o projeto
 ## Back end
-Pré-requisitos: Java 17 e MySql Server
+Pré-requisitos: Java 17 
 
 
 ```bash
