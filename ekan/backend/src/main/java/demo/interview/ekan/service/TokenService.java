@@ -25,7 +25,7 @@ public class TokenService {
 	@Value("${api.security.token.expires}")
 	private Integer expires = 2;
 
-	private static final String ISSUER = "Ekan ";
+	private static final String ISSUER = "Ekan";
 	
 	public String gerarToken(AuthorizationUser user) {
 		try {
