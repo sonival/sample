@@ -24,12 +24,7 @@ public class BeneficiarioServiceImpl implements IBeneficiarioService {
     @Autowired
     private DocumentoRepository documentoRepository;
 
-    // public BeneficiarioServiceImpl(BeneficiarioRepository repo,
-    // DocumentoRepository docrep) {
-    // super();
-    // this.repository = repo;
-    // this.documentoRepository = docrep;
-    // }
+  
     @Override
     public Beneficiario getByID(Long id) {
         Optional<Beneficiario> beneficario = repository.findById(id);
