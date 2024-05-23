@@ -1,0 +1,72 @@
+spring:
+    profile:
+        active: dev
+    config:
+        activate:
+            on-profile: dev
+    # security:
+    #     user
+    #         name: demo
+    #         password: demo
+    h2:
+        console:
+            enabled: true
+            path: /h2
+            settings.trace: false
+            settings.web-allow-others: false 
+    datasource:
+        url: jdbc:h2:mem:demoDB;
+        username: sa
+        password:
+        driverClassName: org.h2.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        defer-datasource-initialization: false
+        hibernate:
+            ddl-auto: update
+name: dev-YAML
+environment: developer
+enabled: true
+api:
+    security:
+        token:
+            secret: ${JWT_SECRET:987654321}
+            expires: 2400
+---
+spring:
+    config:
+        activate:
+            on-profile: prod
+enabled: false
+---
+spring:
+    profile:
+        active: test
+    config:
+        activate:
+            on-profile: test
+    h2:
+        console:
+            enabled: true
+            path: /h2
+            settings.trace: false
+            settings.web-allow-others: false 
+    datasource:
+        url: jdbc:h2:mem:demoTestDB;
+        username: sa
+        password:
+        driverClassName: org.h2.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        defer-datasource-initialization: false
+        hibernate:
+            ddl-auto: update
+name: test-YAML
+environment: developer
+enabled: true
+
+api:
+    security:
+        token:
+            secret: ${JWT_SECRET:987654321}
+            expires: 2400

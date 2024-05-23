@@ -1,0 +1,43 @@
+{
+	"folders": [
+		{
+			"path": "../backend"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic",
+		"java.configuration.updateBuildConfiguration": "interactive",
+		"java.configuration.runtimes": [
+			{
+				"name": "JavaSE-17",
+				"path": "/opt/homebrew/Cellar/openjdk@17/17.0.11/libexec/openjdk.jdk/Contents/Home"
+			},
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "java",
+				"name": "EkanApplication DEV",
+				"request": "launch",
+				"mainClass": "demo.interview.ekan.EkanApplication",
+				"projectName": "ekan",
+				"vmArgs": "-Dspring.profiles.active=dev"
+			},
+			{
+				"type": "java",
+				"name": "EkanApplication Test",
+				"request": "launch",
+				"mainClass": "demo.interview.ekan.EkanApplication",
+				"projectName": "ekan",
+				"vmArgs": "-Dspring.profiles.active=test"
+			}
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"vscjava.vscode-lombok"
+		]
+	}
+}
