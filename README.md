@@ -27,6 +27,7 @@ git clone https://github.com/sonival/sample
 mvn clean install
 
 # rodar aplicação
+cd ekan/backend/
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
 
 # abrindo o openapi da aplicação no navegador (Chrome/FireFox)
