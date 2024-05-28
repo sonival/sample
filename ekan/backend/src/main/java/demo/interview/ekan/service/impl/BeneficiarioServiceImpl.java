@@ -108,7 +108,7 @@ public class BeneficiarioServiceImpl implements IBeneficiarioService {
         }else{
             throw new Exception("Beneficiario nao localizado");
         }
-\
+
     }
 
 }
